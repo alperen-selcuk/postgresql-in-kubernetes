@@ -15,3 +15,11 @@ kubectl apply -f postgres-cm.yaml
 kubectl apply -f postgres-svc.yaml
 kubectl apply -f postgres-sts.yaml
 ```
+
+# postgres backup and restore
+
+```
+pg_dump --format=c yourdatabase -U youruser > backup.dump
+
+pg_restore -h hostname -p port -U youruser -d postgres backup.dump
+```
